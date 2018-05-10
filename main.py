@@ -27,17 +27,17 @@ def index():
 
     
 @app.route('/explore')
-def about():
+def explore():
     template = JINJA_ENVIRONMENT.get_template('templates/explore.html')
     return template.render()
 
 @app.route('/model')
-def about():
+def model():
     template = JINJA_ENVIRONMENT.get_template('templates/model.html')
     return template.render()
 
 @app.route('/documentation')
-def about():
+def documentation():
     template = JINJA_ENVIRONMENT.get_template('templates/documentation.html')
     return template.render()
 
