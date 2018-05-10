@@ -26,9 +26,19 @@ def index():
     return template.render()
 
     
-@app.route('/about')
+@app.route('/explore')
 def about():
-    template = JINJA_ENVIRONMENT.get_template('templates/about.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/explore.html')
+    return template.render()
+
+@app.route('/model')
+def about():
+    template = JINJA_ENVIRONMENT.get_template('templates/model.html')
+    return template.render()
+
+@app.route('/documentation')
+def about():
+    template = JINJA_ENVIRONMENT.get_template('templates/documentation.html')
     return template.render()
 
 @app.errorhandler(404)
