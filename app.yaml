@@ -29,6 +29,9 @@ handlers:
 - url: /templates
   static_dir: templates
   application_readable: true
+#- url: /img
+#  static_dir: img
+#  application_readable: true
 
 
 # This handler tells app engine how to route requests to a WSGI application.

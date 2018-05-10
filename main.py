@@ -5,6 +5,7 @@ import os
 import jinja2
 import webapp2
 import logging
+import numpy as np
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -84,4 +85,4 @@ def predict():
         else:
             prediction = "It's good wine"
 
-        return render_template('home.html', prediction = prediction)
+        return render_template('index.html', prediction = prediction)
