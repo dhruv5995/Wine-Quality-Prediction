@@ -1,0 +1,160 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Wine Quality Prediction</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/nice-select.css">							
+			<link rel="stylesheet" href="css/animate.min.css">
+			<link rel="stylesheet" href="css/jquery-ui.css">			
+			<link rel="stylesheet" href="css/owl.carousel.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>	
+			  <header id="header" id="home">
+		  		<div class="header-top">
+		  			<div class="container">
+				  		<div class="row align-items-center">
+				  			<div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+				        		<a href="index.html"><b>Wine Quality Prediction</b></a>			
+				  			</div>
+				  			<div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
+								<a class="btns" >Dhruv Shah</a>
+				  				<a class="btns" href="mailto:ddshah@andrew.cmu.edu">ddshah@andrew.cmu.edu</a>		
+				  				<a class="icons" href="tel:+1 412 419 8324">
+				  					<span class="lnr lnr-phone-handset"></span>
+				  				</a>
+				  				<a class="icons" href="mailto:ddshah@andrew.cmu.edu">
+				  					<span class="lnr lnr-envelope"></span>
+				  				</a>		
+				  			</div>
+				  		</div>			  					
+		  			</div>
+				</div>
+			    <div class="container main-menu">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="index.html">Home</a></li>
+				          <li><a href="explore.html">Data Exploration</a></li>
+				          <li><a href="model.html">Predictive Model</a></li>
+				          <li><a href="documentation.html">Documentation </a></li>
+				          <li><a href="contact.html">Contact</a></li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->
+			      	<!-- <div class="menu-social-icons">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-behance"></i></a>
+					</div>	 -->    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+			<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Project Documentation		
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="explore.html"> Documentation </a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start Sample Area -->
+			<section class="sample-text-area">
+				<div class="container">
+					<h3 class="text-heading">Data Exploration and Preprocessing Documentation</h3>
+					<p class="sample-text">
+						As it can be seen on the Data Exploration page, there are many features that can be used to predict wine quality. I obtained the wine quality dataset from this link. Below I mention the steps I took for Data Cleaning and Preprocessing:
+					</p>
+					<ul class="unordered-list">
+						<li>The dataset contained two different files for red wine and white wine. I combined both the files and added another column to signify whether the wine was red or white.</li>
+						<li>I removed all the data that contained empty features. And at the end I had a working dataset of 6914 elements.</li>
+						<li>The quality points are on the scale of 1-10. But as you can see in the data visualizations, the ratings in the dataset are only in the range of 3-8. This creates some confusion about the meaning of the ratings. Hence, I decided to make things simple by having ratings 1-5 signify low quality wine and ratings 6-10 signify high quality wine.</li>
+						<li>Then I analyzed the distribution of high and low quality wine in the dataset. Turns out it’s almost equal and hence, we don’t face the issue of data imbalance.</li>
+						<li>Next, I analyzed all the features. For preprocessing them and to ensure that there are no skewed features, I used mean normalization on all the features, by subtracting each data point by the mean of the feature and dividing it by it’s standard deviation.</li>
+						<li>So now we have a classification problem of predicting whether the wine is ‘high’ quality or ‘low’ quality.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="sample-text-area">
+				<div class="container">
+					<h3 class="text-heading">Predictive Machine Learning Model Documentation</h3>
+					<p class="sample-text">
+						After I cleaned and preprocessed the data, I move on to explaining the Machine Learning model I used to predict the quality of wine based on the features I extracted.
+					</p>
+					<ul class="unordered-list">
+						<li>For this classification task, I experimented with two Machine Learning models: Support Vector Machine and Random Decision Forest.</li>
+						<li>I experimented with a few parameters and noted the F1 score for each experiment. Then I ran a grid search to find the most optimal set of hyper parameters. </li>
+						<li>I used cross-validation by randomly splitting my dataset into train set and validation set to correctly evaluate the model performance.</li>
+						<li>The random forest gave the best performance from all the experiments I tried with F1 score of 0.81 and accuracy 0.82.</li>
+						<li>Next, I analyzed all the features. For preprocessing them and to ensure that there are no skewed features, I used mean normalization on all the features, by subtracting each data point by the mean of the feature and dividing it by it’s standard deviation.</li>
+						<li>So now we have a classification problem of predicting whether the wine is ‘high’ quality or ‘low’ quality.</li>
+					</ul>
+				</div>
+			</section>
+						
+
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+ 			<script src="js/jquery-ui.js"></script>			
+			<script src="js/owl.carousel.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	
+		</body>
+	</html>
