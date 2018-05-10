@@ -6,6 +6,7 @@ import jinja2
 import webapp2
 import logging
 import numpy as np
+from google.cloud import storage
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -16,8 +17,24 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 from flask import Flask, request
 app = Flask(__name__)
 
+#MODEL_BUCKET = os.environ['MODEL_BUCKET']
+#MODEL_FILENAME = os.environ['MODEL_FILENAME']
+#MODEL = None
+
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
+
+#@app.before_first_request
+#def _load_model():
+#    global MODEL
+#    client = storage.Client()
+#    bucket = client.get_bucket(MODEL_BUCKET)
+#    blob = bucket.get_blob(MODEL_FILENAME)
+#    s = blob.download_as_string()
+#
+#    # Note: Change the save/load mechanism according to the framework
+#    # used to build the model.
+#    MODEL = pickle.loads(s)
 
 @app.route('/')
 def index():
@@ -25,6 +42,10 @@ def index():
 
     # render the web page with the data 
     return template.render()
+    
+
+
+
 
     
 @app.route('/explore')
@@ -75,10 +96,10 @@ def predict():
         inp = np.array([])
         inp = np.append(inp, [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12]).reshape(-1,1)
 
-        with open("model_rcf.pkl", "rb") as f:
-            model = pickle.load(f)
+#        with open("model_rcf.pkl", "rb") as f:
+#            model = pickle.load(f)
 
-        pred = model.predict(inp)
+        pred = MODEL.predict(inp)
 
         if pred == 0:
             prediction = "It's bad wine"
